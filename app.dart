@@ -15,6 +15,7 @@ class ScrubberDDS {
     }
     read();
     createFields();
+    createTable();
   }
 
 //  decode
@@ -29,7 +30,6 @@ class ScrubberDDS {
     this.rawData = new File(decodePath).readAsStringSync();
   }
 
-//  Fields.csv
 //  Fields
   createFields() {
     var s = this.rawData.split(
@@ -58,13 +58,26 @@ class ScrubberDDS {
 
     String str = 'СсылкаНаТаблицу	ИмяПоля	ИмяПоляХранения	Метаданные	ТипДБ	\n';
     for (int i = 0; i < sClear.length; i++) {
-      print(sClear[i]);
       str = str + sClear[i] + "\n";
     }
     new File('./result/Fields.csv').writeAsStringSync(str);
   }
 
 //  Fields
+
+//  tables
+  createTable() {
+    List<String> list = this.rawData.split('\n');
+    String res = 'Метаданные	ИмяТаблицыХранения\n';
+    for(int i = 0; i < list.length; i++){
+      if (i > 3 && list[i - 2].contains('#==TABLE no')) {
+        res = res + '${list[i].split('|')[1].trim().replaceAll(' ', '.')} ${list[i].split('|')[2].trim()}\n';
+      }
+    }
+    new File('./result/tables.csv').writeAsStringSync(res);
+  }
+//  tables
+
 
 }
 
