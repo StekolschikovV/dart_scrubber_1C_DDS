@@ -9,7 +9,7 @@
 Системная	Snap Shot Period	SNAPSHPER			
 Системная	Date of Account Tota	ACCDATE			
 Системная	FLAGS	FLAGS			
-Константы	Row ID	ROW_ID			
+Константы	Row ID	ROW_ID			CURDATE
 Константы	ID obj(0-cons )	OBJID			
 Константы	ID parameter	ID			
 Константы	Fix date	DATE			
@@ -19,7 +19,7 @@
 Константы	Action No	ACTNO			
 Константы	LineNo	LINENO_			
 Константы		TVALUE			
-Журналы	Row ID	ROW_ID			
+Журналы	Row ID	ROW_ID
 Журналы	ID of Journal	IDJOURNAL			
 Журналы	ID Document	IDDOC			
 Журналы	ID Def Document	IDDOCDEF			

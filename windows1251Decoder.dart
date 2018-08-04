@@ -53,9 +53,9 @@ class windows1251Decoder {
 
   String codeListToStr(List code) {
     String s = "";
-    for (int i = 0; i < code.length; i++) {
-      s += codeToLetter(code[i]);
-      print(1);
+    for (int j = 0; j < code.length; j++) {
+      print("Process: ${j} - ${code.length} = ${code.length - j}");
+      s += codeToLetter(code[j]);
     }
     return s;
   }
